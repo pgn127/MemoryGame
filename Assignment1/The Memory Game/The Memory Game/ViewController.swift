@@ -10,19 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var cat: UIImageView!
-    
-    @IBOutlet weak var bald: UIImageView!
-    
-    @IBOutlet weak var lake: UIImageView!
+
+    var tile: TileView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         println("test")
-        var test = [cat, bald, lake]
-        var model = GameModel(numOfTiles: 16,imgArray: test)
+        
+        //var test = [cat, bald, lake]
+        var numOfTiles = 12
+        var model = GameModel(numOfTiles: numOfTiles,imgArray: [UIImage(named: "lake")!,UIImage(named: "cathedral")!])
         println(model.description())
+        for var i = 1; i<=numOfTiles; i++ {
+            tile = self.view.viewWithTag(i) as? TileView
+            tile!.tileIndex = i
+            tile!.img = UIImage(named: "lake")!
+//            self.view.addSubview(self.tile!)
+        }
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {

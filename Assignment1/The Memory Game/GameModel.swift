@@ -47,7 +47,7 @@ class GameModel {
     struct TileData {
         
         //tiledata properties
-        var pic : UIImageView!
+        var pic : UIImage
         var picId : Int
         func description() -> String {
             return String(picId)
@@ -56,7 +56,7 @@ class GameModel {
     }
     
     //gamemodel initilizer
-    init(numOfTiles: Int, imgArray: [UIImageView!]){
+    init(numOfTiles: Int, imgArray: [UIImage]){
         println("initialized")
         lastTileIndex = nil
         secondLastTileIndex = nil
@@ -68,7 +68,7 @@ class GameModel {
         reset(numOfTiles, imageArray: imgArray)
     }
     
-    func reset(numOfTiles: Int, imageArray: [UIImageView!]){
+    func reset(numOfTiles: Int, imageArray: [UIImage]){
         lastTileIndex = nil
         secondLastTileIndex = nil
         matchCount = 0
