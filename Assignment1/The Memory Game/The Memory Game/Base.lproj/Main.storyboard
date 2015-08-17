@@ -17,58 +17,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-qh-tkh">
-                                <rect key="frame" x="24" y="25" width="552" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-qh-tkh">
+                                <rect key="frame" x="24" y="15" width="552" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-Te-RT5" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="24" y="54" width="179" height="129"/>
+                                <rect key="frame" x="24" y="44" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pi7-aR-M9i" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="211" y="54" width="178" height="129"/>
+                                <rect key="frame" x="211" y="44" width="178" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiI-19-dvJ" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="24" y="191" width="179" height="128"/>
+                                <rect key="frame" x="24" y="183" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-Ws-V5p" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="211" y="191" width="178" height="128"/>
+                                <rect key="frame" x="211" y="183" width="178" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mi-Qn-bHq" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="397" y="191" width="179" height="128"/>
+                                <rect key="frame" x="397" y="183" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6a-FJ-BhI" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="24" y="327" width="179" height="129"/>
+                                <rect key="frame" x="24" y="322" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZD-eb-Qz5" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="211" y="327" width="178" height="129"/>
+                                <rect key="frame" x="211" y="322" width="178" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-gy-jj4" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="397" y="327" width="179" height="129"/>
+                                <rect key="frame" x="397" y="322" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fQ-Lh-qjN" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="24" y="464" width="179" height="128"/>
+                                <rect key="frame" x="24" y="461" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBK-91-9eZ" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="211" y="464" width="178" height="128"/>
+                                <rect key="frame" x="211" y="461" width="178" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="12" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4c-CK-AEN" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="397" y="464" width="179" height="128"/>
+                                <rect key="frame" x="397" y="461" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-tI-0JO" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="397" y="54" width="179" height="129"/>
+                                <rect key="frame" x="397" y="44" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -129,7 +129,7 @@
                             <constraint firstItem="0mi-Qn-bHq" firstAttribute="width" secondItem="oZD-eb-Qz5" secondAttribute="width" id="pJt-z8-uFV"/>
                             <constraint firstItem="Z6a-FJ-BhI" firstAttribute="top" secondItem="fiI-19-dvJ" secondAttribute="bottom" constant="8" id="qaL-Er-p4r"/>
                             <constraint firstItem="0mi-Qn-bHq" firstAttribute="top" secondItem="GyN-tI-0JO" secondAttribute="bottom" constant="8" id="qyu-Xy-Tqk"/>
-                            <constraint firstItem="KmN-qh-tkh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="25" id="sdy-mZ-N76"/>
+                            <constraint firstItem="KmN-qh-tkh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="15" id="sdy-mZ-N76"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KmN-qh-tkh" secondAttribute="trailing" constant="8" id="skd-dY-eG1"/>
                             <constraint firstAttribute="centerX" secondItem="KmN-qh-tkh" secondAttribute="centerX" id="t7k-2g-2fc"/>
                             <constraint firstItem="0mi-Qn-bHq" firstAttribute="width" secondItem="9KA-Ws-V5p" secondAttribute="width" id="tw8-DD-mRp"/>
