@@ -40,7 +40,7 @@ class GameModel {
     var firstTurn : Bool
     var matchCount : Int
     var gameScore : Int
-    //var delegate : GameModelDelegate
+    var delegate : GameModelDelegate?
     
     
     //tiledata structure
@@ -64,7 +64,7 @@ class GameModel {
         gameScore = 0
         firstTurn = true
         gameState = [TileData]()
-        //delegate = GameModelDelegate
+        //delegate = GameModelDelegate?()
         reset(numOfTiles, imageArray: imgArray)
     }
     
@@ -99,6 +99,34 @@ class GameModel {
     }
     
     func pushTileIndex(tileIndex: Int){
+        //TileView.revealImage(TileView.viewWithTag(tileIndex))
+        if !firstTurn && (tileIndex != lastTileIndex) {
+            var tappedData = gameState[tileIndex - 1]
+            var prevTappedData = gameState[lastTileIndex! - 1]
+            if prevTappedData.picId == tappedData.picId {
+                gameScore += 200
+                matchCount++
+                self.delegate!.didMatchTile(self, tileIndex: tileIndex, previousTileIndex: lastTileIndex!)
+                self.delegate!.gameDidComplete(self)
+                self.delegate!.scoreDidUpdate(self, newScore: gameScore)
+            }
+            else{
+                gameScore -= 100
+                self.delegate!.didFailToMatchTile(self, tileIndex: tileIndex, previousTileIndex: lastTileIndex!)
+                self.delegate!.scoreDidUpdate(self, newScore: gameScore)
+            }
+            firstTurn = true
+            
+        }
+        else if (!firstTurn && tileIndex == lastTileIndex){
+            println("Same tile tapped")
+        }
+        
+        else{
+            println("tap number \(firstTurn)")
+            firstTurn = false
+        }
+        //Should i be pushing the tile index if its the second case
         secondLastTileIndex = lastTileIndex
         lastTileIndex = tileIndex
     }

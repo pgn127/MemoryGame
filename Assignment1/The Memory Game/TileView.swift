@@ -18,7 +18,7 @@ class TileView: UIView{
     //var img: UIImage? = UIImage(named: "lake")
     var img: UIImage
     var imageView: UIImageView
-    //var delegate : TileViewDelegate
+    var delegate : TileViewDelegate?
     
     required init(coder aDecoder: NSCoder) {
         tileIndex = 0
@@ -26,6 +26,7 @@ class TileView: UIView{
         imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.img = UIImage(named: "question")!
         imageView.image = UIImage(named: "question")
+        //self.delegate = TileViewDelegate?()
         super.init(coder: aDecoder)
         
         let widthConstraint = NSLayoutConstraint(item: self.imageView,
@@ -76,6 +77,7 @@ class TileView: UIView{
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         revealImage()
+        delegate!.didSelectTile(self)
     }
     
     

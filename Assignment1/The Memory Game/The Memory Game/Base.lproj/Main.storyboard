@@ -17,18 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-qh-tkh">
-                                <rect key="frame" x="24" y="15" width="552" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-Te-RT5" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
                                 <rect key="frame" x="24" y="44" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pi7-aR-M9i" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
                                 <rect key="frame" x="211" y="44" width="178" height="131"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-tI-0JO" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
+                                <rect key="frame" x="397" y="44" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiI-19-dvJ" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
@@ -67,10 +65,12 @@
                                 <rect key="frame" x="397" y="461" width="179" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-tI-0JO" customClass="TileView" customModule="The_Memory_Game" customModuleProvider="target">
-                                <rect key="frame" x="397" y="44" width="179" height="131"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmN-qh-tkh">
+                                <rect key="frame" x="24" y="15" width="552" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.310881362802721" green="0.63652381819406223" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -149,6 +149,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="KmN-qh-tkh" id="rqt-7C-GN7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
