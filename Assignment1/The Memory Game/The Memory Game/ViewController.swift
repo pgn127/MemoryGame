@@ -16,16 +16,33 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
     var model: GameModel?
     let numOfTiles = 12
     var tileViewArray: [TileView] = []
+//    var img1 = UIImage(named: "lake")
+//    var img2 = UIImage(named: "cathedral")
+//    var img3 = UIImage(named: "baldhill")
+    var imageArray = [UIImage(named: "lake")!, UIImage(named: "cathedral")!, UIImage(named: "baldhill")!]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //var test = [cat, bald, lake]
-        model = GameModel(numOfTiles: numOfTiles,imgArray: [UIImage(named: "lake")!,UIImage(named: "cathedral")!,UIImage(named: "baldhill")!])
+        //imageArray = [img1!,img2!,img3!]
+        model = GameModel(numOfTiles: numOfTiles,imgArray: imageArray)
         model!.delegate = self as GameModelDelegate
         println(model!.description())
-        //setUpTiles(numOfTiles: numOfTiles, model: model)
         setUpTiles()
-
+        //var test = [cat, bald, lake]
+//        if let pic = img1{
+//            if let pic2 = img2{
+//                if let pic3 = img3{
+                    //imageArray = [pic,pic2,pic3]
+                    //model = GameModel(numOfTiles: numOfTiles,imgArray: imageArray)
+                    //model!.delegate = self as GameModelDelegate
+                    //println(model!.description())
+                    //setUpTiles(numOfTiles: numOfTiles, model: model)
+                    //setUpTiles()
+                //}
+            //}
+        //}
+        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -36,10 +53,13 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
             tileViewArray.append(tile!)
             var curTileData = model!.gameState[i]
             tile!.img = curTileData.pic
+            tile!.tileHidden = false
+            tile!.imageView.alpha = 1
             tile!.tileIndex = i+1
             tile!.delegate = self as TileViewDelegate
             tile!.coverImage()
         }
+        
     }
     
     func didSelectTile(tileView: TileView){
@@ -51,14 +71,18 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
         }
     }
     
+    func restartGame(gameModel: GameModel){
+        gameModel.reset(self.numOfTiles, imageArray: imageArray)
+        self.setUpTiles()
+    }
+    
     func gameDidComplete(gameModel: GameModel){
         println("matches \(gameModel.matchCount)")
         if gameModel.matchCount == (numOfTiles/2) {
             //display alert
             var newGameAlert = UIAlertController(title: "New Game", message: "Your score was \(gameModel.gameScore)!", preferredStyle: UIAlertControllerStyle.Alert)
             newGameAlert.addAction(UIAlertAction(title: "New Game", style: .Default, handler: { (action:UIAlertAction!) in
-            gameModel.reset(self.numOfTiles, imageArray: [UIImage(named: "lake")!,UIImage(named: "cathedral")!,UIImage(named: "baldhill")!])
-            self.setUpTiles()
+                self.restartGame(gameModel)
             }))
             self.presentViewController(newGameAlert, animated: true, completion: nil)
             
@@ -103,7 +127,7 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
     }
     
     func scoreDidUpdate(gameModel:GameModel, newScore: Int){
-        scoreLabel.text = String(newScore)
+        scoreLabel.text = String("Score: \(newScore)")
     }
     
 

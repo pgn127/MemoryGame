@@ -10,17 +10,26 @@ import Foundation
 import UIKit
 
 //code from http://ijoshsmith.com/2014/06/17/randomly-shuffle-a-swift-array/
-extension Array
-{
-    /** Randomizes the order of an array's elements. */
-    mutating func shuffle()
-    {
-        for _ in 0..<10
-        {
-            sort { (_,_) in arc4random() < arc4random() }
-        }
-    }
-}
+//extension Array
+//{
+//    /** Randomizes the order of an array's elements. */
+//    mutating func shuffle()
+//    {
+//        for _ in 0..<10
+//        {
+//            sort { (_,_) in arc4random() < arc4random() }
+//        }
+//    }
+//}
+//extension Array {
+//    mutating func shuffle() {
+//        if count < 2 { return }
+//        for i in 0..<(count - 1) {
+//            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+//            swap(&self[i], &self[j])
+//        }
+//    }
+//}
 
 protocol GameModelDelegate {
     func gameDidComplete(gameModel: GameModel)
@@ -74,30 +83,50 @@ class GameModel {
         matchCount = 0
         gameScore = 0
         firstTurn = true
+        gameState = [TileData]()
         var curId = 0
         var maxId = imageArray.count - 1
-        for var i=0; i < numOfTiles; i++ {
+        var i = 0
+        while i < numOfTiles/2 {
             if curId > maxId{
                 curId = 0
             }
             gameState.append(TileData(pic: imageArray[curId], picId: curId))
             gameState.append(TileData(pic: imageArray[curId], picId: curId))
             curId++
+            i++
         }
         println(description())
-        gameState.shuffle()
+        //gameState.shuffle()
+        gameState = shuffle(gameState)
+        println("game model reset")
     }
     
-    func shuffle(imageArray: [UIImage]){
-        
+    func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
+        let c = count(list)
+        if c < 2 { return list }
+        for i in 0..<(c - 1) {
+            let j = Int(arc4random_uniform(UInt32(c - i))) + i
+            swap(&list[i], &list[j])
+        }
+        return list
     }
+    
+//     func shuffle(){
+//        for var i = gameState.count - 1; i > 0; i-- {
+//            var j = Int(arc4random_uniform(UInt32(i - 1)))
+//            var current = gameState.removeAtIndex(i)
+//            gameState.insert(current, atIndex: i)
+//            gameState[j] = current
+//            swap(&gameState[i], &gameState[j])
+//        }
+//    }
     
     func description() -> String {
         var info = ""
         for img in gameState {
             var theid = img.picId
             info+="\(theid): "
-            
         }
         return info
     }
@@ -127,7 +156,7 @@ class GameModel {
         }
         
         else{
-            println("tap number \(firstTurn)")
+            //println("tap number \(firstTurn)")
             firstTurn = false
         }
         //Should i be pushing the tile index if its the second case
