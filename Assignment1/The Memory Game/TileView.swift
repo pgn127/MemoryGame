@@ -14,7 +14,8 @@ protocol TileViewDelegate{
 
 class TileView: UIView{
    
-    var tileIndex: Int 
+    var tileIndex: Int
+    var tileHidden: Bool
     //var img: UIImage? = UIImage(named: "lake")
     var img: UIImage
     var imageView: UIImageView
@@ -22,6 +23,7 @@ class TileView: UIView{
     
     required init(coder aDecoder: NSCoder) {
         tileIndex = 0
+        tileHidden = false
         imageView = UIImageView(frame:CGRectMake(0, 0, 100, 100))
         imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.img = UIImage(named: "question")!
@@ -73,6 +75,7 @@ class TileView: UIView{
     
     func hideTiles(){
         imageView.alpha = 0
+        tileHidden = true
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {

@@ -23,6 +23,14 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
         model = GameModel(numOfTiles: numOfTiles,imgArray: [UIImage(named: "lake")!,UIImage(named: "cathedral")!,UIImage(named: "baldhill")!])
         model!.delegate = self as GameModelDelegate
         println(model!.description())
+        //setUpTiles(numOfTiles: numOfTiles, model: model)
+        setUpTiles()
+
+        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    func setUpTiles(){
         for var i = 0; i<numOfTiles; i++ {
             tile = self.view.viewWithTag(i+1) as? TileView
             tileViewArray.append(tile!)
@@ -31,28 +39,29 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
             tile!.tileIndex = i+1
             tile!.delegate = self as TileViewDelegate
             tile!.coverImage()
-            
-            
-//            self.view.addSubview(self.tile!)
         }
-        // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
     func didSelectTile(tileView: TileView){
         //println("function reached")
         var tappedIndex = tileView.tileIndex
         println("tiletapped \(tappedIndex)")
+        if !tileView.tileHidden{
         model!.pushTileIndex(tappedIndex)
+        }
     }
     
     func gameDidComplete(gameModel: GameModel){
+        println("matches \(gameModel.matchCount)")
         if gameModel.matchCount == (numOfTiles/2) {
             //display alert
             var newGameAlert = UIAlertController(title: "New Game", message: "Your score was \(gameModel.gameScore)!", preferredStyle: UIAlertControllerStyle.Alert)
             newGameAlert.addAction(UIAlertAction(title: "New Game", style: .Default, handler: { (action:UIAlertAction!) in
             gameModel.reset(self.numOfTiles, imageArray: [UIImage(named: "lake")!,UIImage(named: "cathedral")!,UIImage(named: "baldhill")!])
+            self.setUpTiles()
             }))
+            self.presentViewController(newGameAlert, animated: true, completion: nil)
+            
         }
     }
     

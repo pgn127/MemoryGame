@@ -76,7 +76,7 @@ class GameModel {
         firstTurn = true
         var curId = 0
         var maxId = imageArray.count - 1
-        for var i=0; i<numOfTiles; i++ {
+        for var i=0; i < numOfTiles; i++ {
             if curId > maxId{
                 curId = 0
             }
@@ -84,7 +84,11 @@ class GameModel {
             gameState.append(TileData(pic: imageArray[curId], picId: curId))
             curId++
         }
+        println(description())
         gameState.shuffle()
+    }
+    
+    func shuffle(imageArray: [UIImage]){
         
     }
     
