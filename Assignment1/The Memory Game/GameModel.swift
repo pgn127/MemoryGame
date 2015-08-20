@@ -99,7 +99,7 @@ class GameModel {
         println(description())
         //gameState.shuffle()
         gameState = shuffle(gameState)
-        println("game model reset")
+        //println("game model reset")
     }
     
     func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {

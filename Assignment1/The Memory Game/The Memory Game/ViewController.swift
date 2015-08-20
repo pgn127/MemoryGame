@@ -65,7 +65,7 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
     func didSelectTile(tileView: TileView){
         //println("function reached")
         var tappedIndex = tileView.tileIndex
-        println("tiletapped \(tappedIndex)")
+        //println("tiletapped \(tappedIndex)")
         if !tileView.tileHidden{
         model!.pushTileIndex(tappedIndex)
         }
