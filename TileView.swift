@@ -21,11 +21,11 @@ class TileView: UIView{
     var imageView: UIImageView
     var delegate : TileViewDelegate?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         tileIndex = 0
         tileHidden = false
         imageView = UIImageView(frame:CGRectMake(0, 0, 100, 100))
-        imageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         self.img = UIImage(named: "question")!
         imageView.image = UIImage(named: "question")
         //self.delegate = TileViewDelegate?()
@@ -78,10 +78,11 @@ class TileView: UIView{
         tileHidden = true
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         revealImage()
         delegate!.didSelectTile(self)
     }
+
     
     
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
-
+    
 
     @IBOutlet weak var scoreLabel: UILabel!
     var tile: TileView?
@@ -27,21 +27,9 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
         //imageArray = [img1!,img2!,img3!]
         model = GameModel(numOfTiles: numOfTiles,imgArray: imageArray)
         model!.delegate = self as GameModelDelegate
-        println(model!.description())
+        print(model!.description())
         setUpTiles()
-        //var test = [cat, bald, lake]
-//        if let pic = img1{
-//            if let pic2 = img2{
-//                if let pic3 = img3{
-                    //imageArray = [pic,pic2,pic3]
-                    //model = GameModel(numOfTiles: numOfTiles,imgArray: imageArray)
-                    //model!.delegate = self as GameModelDelegate
-                    //println(model!.description())
-                    //setUpTiles(numOfTiles: numOfTiles, model: model)
-                    //setUpTiles()
-                //}
-            //}
-        //}
+
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -51,7 +39,7 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
         for var i = 0; i<numOfTiles; i++ {
             tile = self.view.viewWithTag(i+1) as? TileView
             tileViewArray.append(tile!)
-            var curTileData = model!.gameState[i]
+            let curTileData = model!.gameState[i]
             tile!.img = curTileData.pic
             tile!.tileHidden = false
             tile!.imageView.alpha = 1
@@ -64,7 +52,7 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
     
     func didSelectTile(tileView: TileView){
         //println("function reached")
-        var tappedIndex = tileView.tileIndex
+        let tappedIndex = tileView.tileIndex
         //println("tiletapped \(tappedIndex)")
         if !tileView.tileHidden{
         model!.pushTileIndex(tappedIndex)
@@ -77,10 +65,10 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
     }
     
     func gameDidComplete(gameModel: GameModel){
-        println("matches \(gameModel.matchCount)")
+        print("matches \(gameModel.matchCount)")
         if gameModel.matchCount == (numOfTiles/2) {
             //display alert
-            var newGameAlert = UIAlertController(title: "New Game", message: "Your score was \(gameModel.gameScore)!", preferredStyle: UIAlertControllerStyle.Alert)
+            let newGameAlert = UIAlertController(title: "New Game", message: "Your score was \(gameModel.gameScore)!", preferredStyle: UIAlertControllerStyle.Alert)
             newGameAlert.addAction(UIAlertAction(title: "New Game", style: .Default, handler: { (action:UIAlertAction!) in
                 self.restartGame(gameModel)
             }))
@@ -100,9 +88,9 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             //println("test")
         
-            var curTile = self.view.viewWithTag(tileIndex) as? TileView
+            let curTile = self.view.viewWithTag(tileIndex) as? TileView
             curTile!.hideTiles()
-            var prevTile = self.view.viewWithTag(previousTileIndex) as? TileView
+            let prevTile = self.view.viewWithTag(previousTileIndex) as? TileView
             prevTile!.hideTiles()
         //}
         }
@@ -119,9 +107,9 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             //println("test")
         
-            var curTile = self.view.viewWithTag(tileIndex) as? TileView
+            let curTile = self.view.viewWithTag(tileIndex) as? TileView
             curTile!.coverImage()
-            var prevTile = self.view.viewWithTag(previousTileIndex) as? TileView
+            let prevTile = self.view.viewWithTag(previousTileIndex) as? TileView
             prevTile!.coverImage()
         }
     }

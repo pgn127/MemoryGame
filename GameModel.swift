@@ -66,7 +66,7 @@ class GameModel {
     
     //gamemodel initilizer
     init(numOfTiles: Int, imgArray: [UIImage]){
-        println("initialized")
+        print("initialized")
         lastTileIndex = nil
         secondLastTileIndex = nil
         matchCount = 0
@@ -85,7 +85,7 @@ class GameModel {
         firstTurn = true
         gameState = [TileData]()
         var curId = 0
-        var maxId = imageArray.count - 1
+        let maxId = imageArray.count - 1
         var i = 0
         while i < numOfTiles/2 {
             if curId > maxId{
@@ -96,14 +96,14 @@ class GameModel {
             curId++
             i++
         }
-        println(description())
+        print(description())
         //gameState.shuffle()
         gameState = shuffle(gameState)
         //println("game model reset")
     }
     
     func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
-        let c = count(list)
+        let c = list.count //count(list)
         if c < 2 { return list }
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
@@ -152,7 +152,7 @@ class GameModel {
             
         }
         else if (!firstTurn && tileIndex == lastTileIndex){
-            println("Same tile tapped")
+            print("Same tile tapped")
         }
         
         else{
