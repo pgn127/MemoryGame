@@ -62,6 +62,7 @@ class ViewController: UIViewController, GameModelDelegate, TileViewDelegate {
     func restartGame(gameModel: GameModel){
         gameModel.reset(self.numOfTiles, imageArray: imageArray)
         self.setUpTiles()
+        self.scoreDidUpdate(gameModel, newScore: 0)
     }
     
     func gameDidComplete(gameModel: GameModel){
