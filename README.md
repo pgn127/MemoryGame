@@ -8,7 +8,7 @@ A user plays the game by subsequently tapping tiles. When a user taps a tile its
 The game includes a scoring mechanism. A match adds 200 points to the score. A mismatch reduces the score by 100 points.
 
 The user will continue to attempt to match the tiles until there are no tiles left, at which point the game ends and the score is presented to the user in an alert view.
-![End game image](http://github.com/pgn127/MemoryGame/master/endgame.png "OptionalTitle")
+![End game image](https://github.com/pgn127/MemoryGame/master/endgame.png "OptionalTitle")
 
 
 ##Specification:
