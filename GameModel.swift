@@ -107,7 +107,9 @@ class GameModel {
         if c < 2 { return list }
         for i in 0..<(c - 1) {
             let j = Int(arc4random_uniform(UInt32(c - i))) + i
-            swap(&list[i], &list[j])
+            if i != j{
+                swap(&list[i], &list[j])
+            }
         }
         return list
     }
