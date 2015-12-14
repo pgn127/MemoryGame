@@ -9,7 +9,7 @@ The game includes a scoring mechanism. A match adds 200 points to the score. A m
 
 The user will continue to attempt to match the tiles until there are no tiles left, at which point the game ends and the score is presented to the user in an alert view.
 
-![Alt text](/relative/path/to/MemoryGame/endgame.png?raw=true "Optional Title")
+![Alt text](./MemoryGame/endgame.png?raw=true "Optional Title")
 https://github.com/altercation/solarized/raw/master/img/solarized-vim.png
 ##Specification:
 The application is split into four parts, each part is under a separate GIT branch.
